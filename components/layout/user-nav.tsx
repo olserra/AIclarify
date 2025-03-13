@@ -20,7 +20,7 @@ export function UserNav() {
 
     if (!session) {
         return (
-            <Button variant="ghost" onClick={() => router.push("/api/auth/signin")}>
+            <Button variant="outline" onClick={() => router.push("/api/auth/signin")}>
                 Sign In
             </Button>
         )
