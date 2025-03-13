@@ -5,15 +5,8 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Progress } from "@/components/ui/progress"
 import { BarChart3, CreditCard, Zap } from "lucide-react"
-import {
-    LineChart,
-    Line,
-    XAxis,
-    YAxis,
-    CartesianGrid,
-    Tooltip,
-    ResponsiveContainer,
-} from "recharts"
+import { ChartContainer, ChartTooltip } from "@/components/ui/chart"
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip } from "recharts"
 
 const data = [
     { name: "Jan", usage: 400 },
@@ -23,6 +16,13 @@ const data = [
     { name: "May", usage: 700 },
     { name: "Jun", usage: 900 },
 ]
+
+const chartConfig = {
+    usage: {
+        label: "API Calls",
+        color: "#8884d8"
+    }
+}
 
 export default function UsagePage() {
     return (
@@ -90,7 +90,7 @@ export default function UsagePage() {
                                 </CardHeader>
                                 <CardContent>
                                     <div className="h-[300px]">
-                                        <ResponsiveContainer width="100%" height="100%">
+                                        <ChartContainer config={chartConfig}>
                                             <LineChart data={data}>
                                                 <CartesianGrid strokeDasharray="3 3" />
                                                 <XAxis dataKey="name" />
@@ -99,11 +99,11 @@ export default function UsagePage() {
                                                 <Line
                                                     type="monotone"
                                                     dataKey="usage"
-                                                    stroke="#8884d8"
+                                                    stroke={chartConfig.usage.color}
                                                     activeDot={{ r: 8 }}
                                                 />
                                             </LineChart>
-                                        </ResponsiveContainer>
+                                        </ChartContainer>
                                     </div>
                                 </CardContent>
                             </Card>
