@@ -20,6 +20,9 @@ export const authOptions: NextAuthOptions = {
     ],
     adapter: PrismaAdapter(prisma),
     secret: process.env.NEXTAUTH_SECRET,
+    session: {
+        strategy: "jwt",
+    },
     callbacks: {
         async signIn({ user, account, profile }) {
             if (!user.email) {
