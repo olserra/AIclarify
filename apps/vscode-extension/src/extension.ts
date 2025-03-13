@@ -25,7 +25,7 @@ export function activate(context: vscode.ExtensionContext) {
   // Create and start the client
   client = new LanguageClient(
     'cursoraiAnalysis',
-    'CursorAI Analysis',
+    'AIclarify',
     serverOptions,
     clientOptions
   );
@@ -53,7 +53,7 @@ export function activate(context: vscode.ExtensionContext) {
       // Show results in a webview
       const panel = vscode.window.createWebviewPanel(
         'cursoraiAnalysis',
-        'CursorAI Analysis',
+        'AIclarify',
         vscode.ViewColumn.Beside,
         { enableScripts: true }
       );
@@ -82,7 +82,7 @@ function getWebviewContent(result: any): string {
     <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>CursorAI Analysis</title>
+      <title>AIclarify</title>
       <style>
         body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; padding: 1rem; }
         .result { background: #f5f5f5; padding: 1rem; border-radius: 4px; }

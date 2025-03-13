@@ -1,6 +1,6 @@
 {
   "name": "cursorai-analysis-vscode",
-  "displayName": "CursorAI Analysis",
+  "displayName": "AIclarify",
   "description": "Real-time code analysis with CursorAI",
   "version": "0.1.0",
   "engines": {
@@ -25,12 +25,12 @@
       }
     ],
     "configuration": {
-      "title": "CursorAI Analysis",
+      "title": "AIclarify",
       "properties": {
         "cursorai.apiKey": {
           "type": "string",
           "default": "",
-          "description": "API Key for CursorAI Analysis"
+          "description": "API Key for AIclarify"
         }
       }
     }
