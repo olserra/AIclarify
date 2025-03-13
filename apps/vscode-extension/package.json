@@ -1,0 +1,44 @@
+{
+  "name": "cursorai-analysis-vscode",
+  "displayName": "CursorAI Analysis",
+  "description": "Real-time code analysis with CursorAI",
+  "version": "0.1.0",
+  "engines": {
+    "vscode": "^1.87.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Linters",
+    "Other"
+  ],
+  "activationEvents": [
+    "onLanguage:javascript",
+    "onLanguage:typescript",
+    "onLanguage:python"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "cursorai.analyze",
+        "title": "Analyze Code with CursorAI"
+      }
+    ],
+    "configuration": {
+      "title": "CursorAI Analysis",
+      "properties": {
+        "cursorai.apiKey": {
+          "type": "string",
+          "default": "",
+          "description": "API Key for CursorAI Analysis"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "eslint src --ext ts"
+  }
+}
