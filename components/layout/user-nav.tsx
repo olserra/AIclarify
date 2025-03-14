@@ -11,8 +11,9 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { Button } from "@/components/ui/button"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { signOut, useSession } from "next-auth/react"
+import { useSession } from "next-auth/react"
 import { useRouter } from "next/navigation"
+import { handleSignIn, handleSignOut } from "@/lib/auth"
 
 export function UserNav() {
     const { data: session } = useSession()
@@ -20,7 +21,7 @@ export function UserNav() {
 
     if (!session) {
         return (
-            <Button variant="outline" onClick={() => router.push("/api/auth/signin")}>
+            <Button variant="outline" onClick={handleSignIn}>
                 Sign In
             </Button>
         )
@@ -50,7 +51,7 @@ export function UserNav() {
                     Settings
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem onClick={() => signOut()}>
+                <DropdownMenuItem onClick={handleSignOut}>
                     Log out
                 </DropdownMenuItem>
             </DropdownMenuContent>
