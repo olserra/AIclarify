@@ -85,6 +85,7 @@
     "zod": "^3.24.2"
   },
   "devDependencies": {
+    "@prisma/client": "^6.5.0",
     "@humanwhocodes/config-array": "^0.13.0",
     "@humanwhocodes/object-schema": "^2.0.3",
     "@types/vscode": "^1.87.0",
