@@ -2,7 +2,6 @@ import express from 'express';
 import { createServer } from 'http';
 import { Server } from 'socket.io';
 import cors from 'cors';
-import * as path from 'path';
 
 export async function createServer(port: number) {
     const app = express();
@@ -16,22 +15,6 @@ export async function createServer(port: number) {
 
     // Enable CORS
     app.use(cors());
-
-    // In development, proxy to the React dev server
-    if (process.env.NODE_ENV === 'development') {
-        const { createProxyMiddleware } = require('http-proxy-middleware');
-        app.use('/', createProxyMiddleware({
-            target: 'http://localhost:3000',
-            changeOrigin: true,
-            ws: true
-        }));
-    } else {
-        // In production, serve the built React app
-        app.use(express.static(path.join(__dirname, '../../cli-dashboard/build')));
-        app.get('*', (req, res) => {
-            res.sendFile(path.join(__dirname, '../../cli-dashboard/build/index.html'));
-        });
-    }
 
     // API endpoints
     app.get('/api/health', (req, res) => {
