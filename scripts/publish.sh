@@ -27,6 +27,14 @@ if [ -n "$(git status --porcelain)" ]; then
 fi
 
 # Increment version and publish
+echo "📦 Incrementing version..."
+bash scripts/version.sh patch
+
+# Commit version changes
+git add package.json packages/*/package.json
+git commit -m "chore: bump version"
+
+# Publish packages
 echo "📦 Publishing packages..."
 pnpm publish
 
