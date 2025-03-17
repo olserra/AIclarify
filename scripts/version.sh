@@ -35,8 +35,19 @@ increment_version() {
     echo "$major.$minor.$patch"
 }
 
-# Get current version from package.json
+# Get latest published version from npm registry
+echo "🔍 Checking npm registry for latest published version..."
+remote_version=$(npm view aiclarify version 2>/dev/null || echo "0.0.0")
+
+# Get current local version from package.json
 current_version=$(node -e "console.log(require('./package.json').version)")
+
+# Compare versions
+if [ "$current_version" != "$remote_version" ]; then
+    echo "⚠️  Local version ($current_version) differs from npm published version ($remote_version)"
+    echo "Using npm published version as base..."
+    current_version=$remote_version
+fi
 
 # Increment version based on argument
 if [ -z "$1" ]; then
