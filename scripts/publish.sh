@@ -7,11 +7,11 @@ echo "🚀 Starting publish process..."
 
 # Clean all dist folders
 echo "🧹 Cleaning dist folders..."
-pnpm clean
+npm run clean
 
-# Build all packages
-echo "🏗️ Building packages..."
-pnpm build:all
+# Build the project
+echo "🏗️ Building project..."
+npm run build
 
 # Check if we're on main branch
 CURRENT_BRANCH=$(git branch --show-current)
@@ -31,11 +31,11 @@ echo "📦 Incrementing version..."
 bash scripts/version.sh patch
 
 # Commit version changes
-git add package.json packages/*/package.json
+git add package.json
 git commit -m "chore: bump version"
 
-# Publish packages
-echo "📦 Publishing packages..."
-pnpm publish
+# Publish package
+echo "📦 Publishing package..."
+npm publish --access public
 
 echo "✅ Publish complete!" 

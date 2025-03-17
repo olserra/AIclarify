@@ -1,77 +1,70 @@
 # AIClarify
 
-AIClarify is a powerful code analysis tool that helps developers understand and improve their codebase quality. It provides real-time analysis through a beautiful dashboard interface.
+A real-time code quality analysis tool that provides insights into your codebase's performance, security, and maintainability.
 
 ## Features
 
-- Real-time code analysis
-- Beautiful and modern dashboard interface
-- Detailed metrics and insights
-- Code quality suggestions
-- Project-wide analysis
-- Customizable analysis options
+- 🔍 Real-time code analysis
+- 📊 Performance metrics
+- 🔒 Security checks
+- 🛠️ Maintainability scoring
+- 📱 Live dashboard
+- 🔄 File watching
+- 🎯 Multiple language support (TypeScript, JavaScript, Python)
 
 ## Installation
 
 ```bash
-npm install aiclarify
-# or
-yarn add aiclarify
-# or
-pnpm add aiclarify
+npm install -g aiclarify
 ```
 
 ## Usage
 
-1. Add the following script to your `package.json`:
-
-```json
-{
-  "scripts": {
-    "analyze": "aiclarify"
-  }
-}
+1. Navigate to your project directory:
+```bash
+cd your-project
 ```
 
 2. Run the analysis:
-
 ```bash
-npm run analyze
-# or
-yarn analyze
-# or
-pnpm analyze
+aiclarify analyze
 ```
 
-3. Open your browser and navigate to `http://localhost:5000` to view the analysis dashboard.
+3. View the metrics dashboard at `http://localhost:5000`
 
-## Configuration
+### Options
 
-You can customize the analysis by creating an `aiclarify.config.js` file in your project root:
+- `-p, --port <number>`: Port to run the server on (default: 5000)
+- `-w, --watch`: Watch for file changes and update analysis in real-time
+- `-e, --exclude <patterns...>`: Patterns to exclude from analysis
 
-```javascript
-module.exports = {
-  includePatterns: ['**/*.{js,jsx,ts,tsx}'],
-  excludePatterns: ['**/node_modules/**', '**/dist/**', '**/build/**'],
-  maxDepth: 10,
-  timeout: 30000,
-};
+Example with options:
+```bash
+aiclarify analyze -p 3000 -w -e "dist" "coverage"
 ```
 
-## Development
+## Metrics
 
-To contribute to AIClarify:
+AIClarify analyzes your codebase for:
 
-1. Clone the repository
-2. Install dependencies:
-   ```bash
-   pnpm install
-   ```
-3. Start the development server:
-   ```bash
-   pnpm dev
-   ```
-4. Open `http://localhost:5000` in your browser
+### Performance
+- Code complexity
+- Execution time estimates
+- Memory usage patterns
+
+### Security
+- Common vulnerabilities
+- Best practices
+- Dependency security
+
+### Maintainability
+- Code quality score
+- Documentation coverage
+- Test coverage
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## License
 

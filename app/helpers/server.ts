@@ -1,11 +1,11 @@
 import express from 'express';
-import { createServer } from 'http';
+import { createServer as createHttpServer } from 'http';
 import { Server } from 'socket.io';
 import cors from 'cors';
 
 export async function createServer(port: number) {
     const app = express();
-    const httpServer = createServer(app);
+    const httpServer = createHttpServer(app);
     const io = new Server(httpServer, {
         cors: {
             origin: '*',

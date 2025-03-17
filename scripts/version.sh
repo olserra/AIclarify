@@ -35,8 +35,8 @@ increment_version() {
     echo "$major.$minor.$patch"
 }
 
-# Current version from npm registry (hardcoded for now)
-current_version="0.2.4"
+# Get current version from package.json
+current_version=$(node -e "console.log(require('./package.json').version)")
 
 # Increment version based on argument
 if [ -z "$1" ]; then
@@ -48,16 +48,7 @@ new_version=$(increment_version "$current_version" "$1")
 
 echo "🔄 Updating version from $current_version to $new_version"
 
-# Update root package.json
+# Update package.json
 node -e "const pkg=require('./package.json'); pkg.version='$new_version'; require('fs').writeFileSync('package.json', JSON.stringify(pkg, null, 2))"
 
-# Update core package.json
-node -e "const pkg=require('./packages/core/package.json'); pkg.version='$new_version'; require('fs').writeFileSync('./packages/core/package.json', JSON.stringify(pkg, null, 2))"
-
-# Update dashboard package.json
-node -e "const pkg=require('./packages/dashboard/package.json'); pkg.version='$new_version'; require('fs').writeFileSync('./packages/dashboard/package.json', JSON.stringify(pkg, null, 2))"
-
-# Update shared-components package.json
-node -e "const pkg=require('./packages/shared-components/package.json'); pkg.version='$new_version'; require('fs').writeFileSync('./packages/shared-components/package.json', JSON.stringify(pkg, null, 2))"
-
-echo "✅ Version updated to $new_version in all packages" 
+echo "✅ Version updated to $new_version" 
