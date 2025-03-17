@@ -35,8 +35,8 @@ increment_version() {
     echo "$major.$minor.$patch"
 }
 
-# Get current version from root package.json
-current_version=$(node -p "require('./package.json').version")
+# Current version from npm registry (hardcoded for now)
+current_version="0.2.4"
 
 # Increment version based on argument
 if [ -z "$1" ]; then
