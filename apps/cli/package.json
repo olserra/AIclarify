@@ -1,0 +1,35 @@
+{
+    "name": "aiclarify-studio",
+    "version": "0.1.0",
+    "description": "AIclarify Studio - Real-time code analysis dashboard",
+    "main": "dist/index.js",
+    "bin": {
+        "aiclarify-studio": "./dist/index.js"
+    },
+    "scripts": {
+        "build": "tsc",
+        "start": "node dist/index.js",
+        "dev": "ts-node-dev --respawn src/index.ts",
+        "lint": "eslint src --ext ts",
+        "build:dashboard": "cd ../cli-dashboard && npm run build"
+    },
+    "dependencies": {
+        "express": "^4.18.2",
+        "socket.io": "^4.7.4",
+        "chokidar": "^3.5.3",
+        "commander": "^11.1.0",
+        "cors": "^2.8.5",
+        "open": "^9.1.0",
+        "http-proxy-middleware": "^2.0.6"
+    },
+    "devDependencies": {
+        "@types/express": "^4.17.21",
+        "@types/node": "^20.11.19",
+        "@types/socket.io": "^3.0.2",
+        "@typescript-eslint/eslint-plugin": "^7.0.1",
+        "@typescript-eslint/parser": "^7.0.1",
+        "eslint": "^8.56.0",
+        "ts-node-dev": "^2.0.0",
+        "typescript": "^5.3.3"
+    }
+}

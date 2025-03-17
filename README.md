@@ -1,106 +1,78 @@
-# AIclarify
+# AIClarify
 
-AIclarify is a powerful code analysis platform that provides real-time insights into your codebase's quality, maintainability, and performance. It combines the power of AI with traditional code analysis to help developers write better code.
+AIClarify is a powerful code analysis tool that helps developers understand and improve their codebase quality. It provides real-time analysis through a beautiful dashboard interface.
 
 ## Features
 
-### Web Application
-- **Code Analysis Dashboard**: Visualize code quality metrics including complexity, maintainability, and test coverage
-- **Usage Analytics**: Track API usage and monitor your analysis history
-- **API Key Management**: Securely manage your API keys and access
-- **Settings & Customization**: Configure analysis preferences and theme settings
-- **Modern UI**: Beautiful, responsive interface built with Next.js and Tailwind CSS
+- Real-time code analysis
+- Beautiful and modern dashboard interface
+- Detailed metrics and insights
+- Code quality suggestions
+- Project-wide analysis
+- Customizable analysis options
 
-### VSCode Extension
-- **Real-time Analysis**: Get instant feedback on your code as you write
-- **Language Support**: Works with JavaScript, TypeScript, and Python
-- **Integrated Results**: View analysis results directly in your IDE
-- **Quick Actions**: Access common analysis features through the command palette
+## Installation
 
-## Getting Started
-
-### Prerequisites
-- Node.js 18.x or later
-- npm or yarn
-- VSCode (for the extension)
-
-### Installation
-
-1. Clone the repository:
 ```bash
-git clone https://github.com/olserra/aiclarify.git
-cd aiclarify
-```
-
-2. Install dependencies:
-```bash
-npm install
+npm install aiclarify
 # or
-yarn install
-```
-
-3. Set up environment variables:
-```bash
-cp .env.example .env.local
-# Edit .env.local with your configuration
-```
-
-4. Start the development server:
-```bash
-npm run dev
+yarn add aiclarify
 # or
-yarn dev
+pnpm add aiclarify
 ```
-
-### VSCode Extension
-
-1. Open the `apps/vscode-extension` directory
-2. Install dependencies:
-```bash
-npm install
-# or
-yarn install
-```
-
-3. Build the extension:
-```bash
-npm run compile
-# or
-yarn compile
-```
-
-4. Press F5 in VSCode to start debugging the extension
 
 ## Usage
 
-### Web Application
-1. Visit `http://localhost:3000`
-2. Sign in or create an account
-3. Navigate to the Code Analysis dashboard
-4. Start analyzing your code
+1. Add the following script to your `package.json`:
 
-### VSCode Extension
-1. Open any JavaScript, TypeScript, or Python file
-2. Use the command palette (Ctrl+Shift+P / Cmd+Shift+P)
-3. Select "Analyze Code with CursorAI"
-4. View the analysis results in the side panel
+```json
+{
+  "scripts": {
+    "analyze": "aiclarify"
+  }
+}
+```
 
-## Contributing
+2. Run the analysis:
 
-We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
+```bash
+npm run analyze
+# or
+yarn analyze
+# or
+pnpm analyze
+```
+
+3. Open your browser and navigate to `http://localhost:5000` to view the analysis dashboard.
+
+## Configuration
+
+You can customize the analysis by creating an `aiclarify.config.js` file in your project root:
+
+```javascript
+module.exports = {
+  includePatterns: ['**/*.{js,jsx,ts,tsx}'],
+  excludePatterns: ['**/node_modules/**', '**/dist/**', '**/build/**'],
+  maxDepth: 10,
+  timeout: 30000,
+};
+```
+
+## Development
+
+To contribute to AIClarify:
+
+1. Clone the repository
+2. Install dependencies:
+   ```bash
+   pnpm install
+   ```
+3. Start the development server:
+   ```bash
+   pnpm dev
+   ```
+4. Open `http://localhost:5000` in your browser
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Support
-
-- GitHub Issues: [Report a bug](https://github.com/olserra/aiclarify/issues)
-- Documentation: [Coming soon]
-- Twitter: [@olserra](https://twitter.com/olserra)
-
-## Acknowledgments
-
-- Built with [Next.js](https://nextjs.org/)
-- UI components from [shadcn/ui](https://ui.shadcn.com/)
-- Icons from [Lucide](https://lucide.dev/) 
+MIT 
