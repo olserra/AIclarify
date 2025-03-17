@@ -1,20 +1,20 @@
 {
-    "name": "@aiclarify/shared-components",
-    "version": "0.1.2",
-    "main": "dist/index.js",
-    "types": "dist/index.d.ts",
-    "scripts": {
-        "build": "tsc",
-        "dev": "tsc -w",
-        "clean": "rimraf dist"
-    },
-    "dependencies": {
-        "react": "^18.2.0",
-        "react-dom": "^18.2.0",
-        "typescript": "^5.8.2"
-    },
-    "devDependencies": {
-        "@types/react": "^19.0.10",
-        "@types/react-dom": "^19.0.4"
-    }
+  "name": "@aiclarify/shared-components",
+  "version": "0.1.4",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc -w",
+    "clean": "rimraf dist"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "typescript": "^5.8.2"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4"
+  }
 }
